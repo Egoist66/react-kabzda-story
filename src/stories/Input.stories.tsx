@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions'
 
 export const UncontrolledInput = () => <input placeholder={'enter text'} type="text"/>
 export const ControlledFixedInputWithDefault = () => <input defaultValue={'Hello'} placeholder={'enter text'} type="text"/>
-export const ControlledFixedInputWithHardCode = () => <input value={'Hello'} placeholder={'enter text'} type="text"/>
+export const ControlledFixedInputWithHardCode = () => <input value={'Helloo'} placeholder={'enter text'} type="text"/>
 export const UnControlledInputWithState = () => {
 
     const [text, setText] = useState<string>('')
