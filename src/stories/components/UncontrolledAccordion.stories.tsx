@@ -1,5 +1,5 @@
 import {FC, ReactElement, ReactNode, useState} from "react";
-import {Accordion, AccordionWithTotlaControl} from "../components/Accordion";
+import {Accordion, AccordionWithTotlaControl} from "../../components/Accordion";
 
 
 type ListPropsType = {

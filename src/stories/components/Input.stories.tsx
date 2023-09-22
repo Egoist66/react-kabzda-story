@@ -1,5 +1,5 @@
 import {ChangeEvent, FocusEvent, useRef, useState} from "react";
-import {Button} from "../components/Button";
+import {Button} from "../../components/Button";
 import {action} from '@storybook/addon-actions'
 
 export const UncontrolledInput = () => <input placeholder={'enter text'} type="text"/>

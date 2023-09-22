@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useReducer} from "react";
-import {Button} from "../components/Button";
+import {Button} from "../../components/Button";
 
 type OnOffProps = {
     on: boolean
