@@ -1,0 +1,73 @@
+
+Component that changes its background state using reducer
+
+
+const Button: FC = () => {
+  
+
+  const {isColored, makeButtonColor} = useButtonReducer({
+    isColored: false
+  })
+
+  return (
+
+    <button style={{backgroundColor: isColored ? 'red' : 'blue'}} onClick={makeButtonColor}>
+      Click me
+    </button>
+  )
+}
+
+Here its Reducer: 
+
+
+type StateType = {
+    isColored: boolean
+
+}
+
+
+const reducer = (state: StateType, action: ButtonActionType) : StateType => {
+    switch(action.type){
+         
+        case 'BUTTON-MAKE-COLORED': 
+            return {
+                isColored: !state.isColored
+            }
+        
+
+        default:  
+            return {
+                state
+            }
+        
+            
+    }
+       
+    
+}
+
+const useButtonReducer = (initialState: StateType) => {
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    const makeButtonColor = () => {
+        dispatch(ButtonActionTypeAC())
+    }
+
+   
+
+    return {
+        makeButtonColor,
+        ...state,
+
+    }
+
+}
+
+type ButtonActionType = {
+    type: 'BUTTON-MAKE-COLORED'
+}
+
+const ButtonActionTypeAC = (): ButtonActionType => {
+    return {type: 'BUTTON-MAKE-COLORED'}
+}
+

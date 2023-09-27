@@ -1,11 +1,15 @@
-import {FC, FormEvent, FocusEvent, useState, ChangeEvent, useEffect} from "react";
 import '../styles/form.css'
 import {useInput} from "../../hooks/useInput";
 
 
 export const FormWithHooks: FC = () => {
-    const email = useInput('')
-    const password = useInput('')
+    const email = useInput('', {
+        minLength: 3
+    })
+    const password = useInput('', {
+        minLength: 5
+    })
+
 
     return (
         <div className={'form-wrapper'}>
@@ -13,6 +17,14 @@ export const FormWithHooks: FC = () => {
 
             <form onSubmit={(e) => e.preventDefault()} id={'form'}>
                 <h1>Регистрация</h1>
+
+                <pre>
+                    {JSON.stringify(email.state, null, 2)}
+                </pre>
+
+                <pre>
+                    {JSON.stringify(password.state, null, 2)}
+                </pre>
 
                 <input
                     onChange={email.onChangeValue}
@@ -22,7 +34,9 @@ export const FormWithHooks: FC = () => {
                     placeholder={'Enter you email...'}
                     type="email"
                 />
-
+                {(email.isDirty && email.isEmpty) ? <div style={{color: "red"}}>
+                    Поле не может быть пустым
+                </div>: email.minLengthError ? <div style={{color: "red"}}>Минимальное значение 3</div> : null}
 
                 <input
                     onChange={password.onChangeValue}
@@ -34,7 +48,7 @@ export const FormWithHooks: FC = () => {
                 />
 
 
-                <button type={'submit'}>Зарегистрироваться</button>
+                <button disabled={email.minLengthError} type={'submit'}>Зарегистрироваться</button>
             </form>
         </div>
     )
@@ -42,7 +56,7 @@ export const FormWithHooks: FC = () => {
 
 
 export default {
-    title: 'Example/FormWithHooks',
+    title: 'Example/FormWithHooksVersion2',
     parameters: {
         layout: 'centered',
     },

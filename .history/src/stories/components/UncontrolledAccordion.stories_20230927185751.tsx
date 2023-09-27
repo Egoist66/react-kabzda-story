@@ -76,6 +76,7 @@ export const UnControlledAccordion: FC = () => {
 
 export default {
     title: 'Example/Accordion',
+    //component: ControlledAccordion,
     tags: ['autodocs'],
 
 }

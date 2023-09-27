@@ -1,5 +1,5 @@
 import {FC, FormEvent, FocusEvent, useState, ChangeEvent, useEffect} from "react";
-import '../styles/form.scss'
+import '../styles/form.css'
 
 type FormStateType = {
     password: string

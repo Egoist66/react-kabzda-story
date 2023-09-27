@@ -1,0 +1,25 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+Component that changes its background state using reducer
+
+<Meta title="Components/Button" />
+
+# Button
+
+
+
+export const Button = () => {
+  
+
+  const {isColored, makeButtonColor} = useButtonReducer({
+    isColored: false
+  })
+
+  return (
+
+    <button style={{backgroundColor: isColored ? 'red' : 'blue'}} onClick={makeButtonColor}>
+      Click me
+    </button>
+  )
+}
+
