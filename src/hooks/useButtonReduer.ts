@@ -1,13 +1,13 @@
 import { useReducer } from "react"
 import { ButtonActionType, ButtonActionTypeAC } from "../actions/button-actions"
 
-type StateType = {
+export type StateType = {
     isColored: boolean
 
 }
 
 
-const reducer = (state: StateType, action: ButtonActionType) : StateType => {
+export const reducer = (state: StateType, action: ButtonActionType) : StateType => {
     switch(action.type){
         
         case 'BUTTON-MAKE-COLORED': 
@@ -37,3 +37,16 @@ export const useButtonReducer = (initialState: StateType) => {
     }
 
 }
+
+type CreatePortalProps = {
+    domNode: HTMLElement
+    position: 'beforeend' | 'beforebegin' | 'afterbegin' | 'afterend'
+    children: string[]
+}
+
+export const createPortal = ({domNode, position, children} : CreatePortalProps) => {
+    children.forEach((child: any) => {
+        domNode.insertAdjacentHTML(position, child)
+    })
+}
+
