@@ -38,24 +38,18 @@ export function OnOff({on}: OnOffProps) {
 
     console.log('On', state.on)
 
-    const onStyle = useMemo(() => {
-        return {backgroundColor: state.on ? 'green' : ''}
-    }, [state.on])
+    const onStyle = {backgroundColor: state.on ? 'green' : ''}
+
+    const offStyle = {backgroundColor: !state.on ? 'red' : ''}
 
 
-    const offStyle = useMemo(() => {
-        return {backgroundColor: !state.on ? 'red' : ''}
-    }, [state.on])
+    const indicator = {
+        width: 7,
+        height: 7,
+        borderRadius: '50%',
+        backgroundColor: state.on ? 'green' : 'red', padding: 10
+    }
 
-    
-    const indicator = useMemo(() => {
-        return {
-            width: 7,
-            height: 7,
-            borderRadius: '50%',
-            backgroundColor: state.on ? 'green' : 'red', padding: 10
-        }
-    }, [state.on])
 
     useEffect(() => {
         console.log('rerender')
@@ -73,12 +67,12 @@ export function OnOff({on}: OnOffProps) {
             <div>
                 <Button
                     text={'On'}
-                    _bg={state.on ? 'green': ''}
+                    _bg={state.on ? 'green' : ''}
                     onClickHandler={() => dispatch({type: 'Controls/ON'})}
                 />
                 <Button
                     text={'Off'}
-                    _bg={!state.on ? 'red': ''}
+                    _bg={!state.on ? 'red' : ''}
                     onClickHandler={() => dispatch({type: 'Controls/OFF'})}
                 />
 

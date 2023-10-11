@@ -1,0 +1,44 @@
+.select {
+
+  user-select: none;
+  position: relative;
+  outline: none;
+
+
+}
+
+.spanTrigger {
+  border: 1px solid silver;
+  min-width: 250px;
+  min-height: 30px;
+  display: inline-flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.options {
+  border: 1px solid silver;
+  border-top: none;
+  min-width: 250px;
+  position: absolute;
+  box-shadow: 1px 1px 9px -1px grey;
+  overflow: auto;
+  max-height: 130px;
+  z-index: 3;
+  left: 0;
+
+  & div {
+    padding: 5px;
+    border-bottom: 1px solid silver;
+    cursor: pointer;
+
+
+
+  }
+}
+
+.selectedItem {
+  background: deepskyblue;
+  color: white;
+}
